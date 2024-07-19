@@ -1,0 +1,195 @@
+{% extends "./plantilla.html" %}
+{% load static %}
+{% block contenido %}
+<br><br><br><br><br>
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6">
+    <center><h2 style="font-size: 20px">FORMULARIO</h2></center><br>
+    <form action="/guardar_empleado/" method="post" enctype="multipart/form-data" id="frm_nuevo_empleado"><br>
+      {% csrf_token %}
+      <div class="form-group row">
+        <label for="Legajo" class="col-sm-2 col-form-label"><b class="b">LEGAJO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="Legajo" id="Legajo" placeholder="Ingrese el legajo" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="Apellido" class="col-sm-2 col-form-label"><b class="b">APELLIDO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="Apellido" id="Apellido" placeholder="Ingrese el apellido" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="Nombre" class="col-sm-2 col-form-label"><b class="b">NOMBRE:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="Nombre" id="Nombre" placeholder="Ingrese el nombre" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="T_doc" class="col-sm-2 col-form-label"><b class="b">TIPO DOCUMENTO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="T_doc" id="T_doc" placeholder="Ingrese el tipo de documento" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="Numero" class="col-sm-2 col-form-label"><b class="b">NUMERO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="Numero" id="Numero" placeholder="Ingrese el número de documento" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="Est_Civil" class="col-sm-2 col-form-label"><b class="b">ESTADO CIVIL:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="Est_Civil" id="Est_Civil" placeholder="Ingrese el estado civil" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="Edad" class="col-sm-2 col-form-label"><b class="b">EDAD:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="number" name="Edad" id="Edad" placeholder="Ingrese la edad" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="Fec_de_Nac" class="col-sm-2 col-form-label"><b class="b">NACIMIENTO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="date" name="Fec_de_Nac" id="Fec_de_Nac" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="Nacionalidad" class="col-sm-2 col-form-label"><b class="b">NACIONALIDAD:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="Nacionalidad" id="Nacionalidad" placeholder="Ingrese la nacionalidad" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="Religion" class="col-sm-2 col-form-label"><b class="b">RELIGIÓN:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+            <select name="Religion" id="Religion" class="form-control">
+                <option value="">Seleccione una religión</option>
+                {% for religion in religion %}
+                    <option value="{{ religion.Religion_ID }}">{{ religion.RELIGION }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div><br>    
+      <div class="form-group row">
+        <label for="Categoria" class="col-sm-2 col-form-label"><b class="b">CATEGORÍA:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+            <select name="Categoria" id="Categoria" class="form-control">
+                <option value="">Seleccione una categoría</option>
+                {% for categoria in categoria %}
+                    <option value="{{ categoria.Categoria_ID }}">{{ categoria.Categoria }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div><br>    
+      <div class="form-group row">
+        <label for="Sucursal" class="col-sm-2 col-form-label"><b class="b">SUCURSAL:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+            <select name="Sucursal" id="Sucursal" class="form-control">
+                <option value="">Seleccione una sucursal</option>
+                {% for sucursal in sucursal %}
+                    <option value="{{ sucursal.Sucursal_ID }}">{{ sucursal.Sucursal }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div><br>     
+    <div class="form-group row">
+        <label for="Convenio" class="col-sm-2 col-form-label"><b class="b">CONVENIO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+            <select name="Convenio" id="Convenio" class="form-control">
+                <option value="">Seleccione un convenio</option>
+                {% for convenio in convenio %}
+                    <option value="{{ convenio.Nombre_del_convenio }}">{{ convenio.Nombre_del_convenio }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div><br>    
+      <div class="form-group row">
+        <label for="Lugar_Trabajo" class="col-sm-2 col-form-label"><b class="b">LUGAR DE TRABAJO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+            <select name="Lugar_Trabajo" id="Lugar_Trabajo" class="form-control">
+                <option value="">Seleccione un lugar de trabajo</option>
+                {% for lugar_trabajo in lugar_trabajo %}
+                    <option value="{{ lugar_trabajo.Nombre_Lugar_Trabajo }}">{{ lugar_trabajo.Nombre_Lugar_Trabajo }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div><br>    
+      <div class="form-group row">
+        <label for="Departamento" class="col-sm-2 col-form-label"><b class="b">DEPARTAMENTO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+            <select name="Departamento" id="Departamento" class="form-control">
+                <option value="">Seleccione un departamento</option>
+                {% for departamento in departamento %}
+                    <option value="{{ departamento.Departamento }}">{{ departamento.Departamento }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div><br>         
+      <br><br>
+      <center>
+        <button type="submit" name="button" class="btn btn-primary"> Guardar </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/" class="btn btn-danger"> Cancelar </a>
+      </center>
+    </form>
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12"><br>
+    <center><h1 style="font-size:20px;"> LISTADO DE EMPLEADOS </h1></center>
+    <table class="table" id="tbl_empleados">
+      <thead>
+        <tr>
+          <th>LEGAJO</th>
+          <th>APELLIDO</th>
+          <th>NOMBRE</th>
+          <th>TIPO DOC</th>
+          <th>NUMERO</th>
+          <th>ESTADO CIVIL</th>
+          <th>EDAD</th>
+          <th>FECHA NAC</th>
+          <th>NACIONALIDAD</th>
+          <th>RELIGIÓN</th>
+          <th>CATEGORÍA</th>
+          <th>SUCURSAL</th>
+          <th>CONVENIO</th>
+          <th>LUGAR TRABAJO</th>
+          <th>DEPARTAMENTO</th>
+          <th>ACCIONES</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for empleado in empleado %}
+        <tr>
+          <td>{{ empleado.Legajo }}</td>
+          <td>{{ empleado.Apellido }}</td>
+          <td>{{ empleado.Nombre }}</td>
+          <td>{{ empleado.T_doc }}</td>
+          <td>{{ empleado.Numero }}</td>
+          <td>{{ empleado.Est_Civil }}</td>
+          <td>{{ empleado.Edad }}</td>
+          <td>{{ empleado.Fec_de_Nac }}</td>
+          <td>{{ empleado.Nacionalidad }}</td>
+          <td>{{ empleado.Religion.RELIGION }}</td>
+          <td>{{ empleado.Categoria.Categoria }}</td>
+          <td>{{ empleado.Sucursal.Sucursal }}</td>
+          <td>{{ empleado.Convenio.Nombre_del_convenio }}</td>
+          <td>{{ empleado.Lugar_Trabajo.Nombre_Lugar_Trabajo }}</td>
+          <td>{{ empleado.Departamento.Departamento }}</td>
+          <td>
+            <a href="/editar_empleado/{{ empleado.Legajo }}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+            <a href="javascript:void(0)" onclick="eliminarEmpleado('/eliminar_empleado/{{ empleado.Legajo }}');" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<br><br><br><br>
+{% endblock %}

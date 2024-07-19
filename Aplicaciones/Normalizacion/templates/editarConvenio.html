@@ -1,0 +1,37 @@
+{% extends "./plantilla.html" %}
+{% load static %}
+{% block contenido %}
+<br><br><br><br><br>
+<center><h1 style="font-size:20px;"> EDITAR CONVENIO </h1></center>
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6">
+    <center><h2 style="font-size: 20px">FORMULARIO</h2></center><br>
+    <form action="/procesar_actualizacion_convenio/" method="post" enctype="multipart/form-data" id="frm_editar_convenio"><br>
+      {% csrf_token %}
+      <input type="hidden" name="Convenio_ID" value="{{ convenio.Convenio_ID }}">
+      <div class="form-group row">
+        <label for="Nombre_del_convenio" class="col-sm-2 col-form-label"><b class="b">CONVENIO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="Nombre_del_convenio" id="Nombre_del_convenio" value="{{ convenio.Nombre_del_convenio }}" placeholder="Ingrese el nombre del convenio" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="Convenio" class="col-sm-2 col-form-label"><b class="b">CÓDIGO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="number" name="Convenio" id="Convenio" value="{{ convenio.Convenio }}" placeholder="Ingrese el código del convenio" class="form-control">
+        </div>
+      </div>
+      <br><br>
+      <center>
+        <button type="submit" name="button" class="btn btn-primary"> Actualizar </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/vista_convenio" class="btn btn-danger"> Cancelar </a>
+      </center>
+    </form>
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>
+<br><br><br><br>
+{% endblock %}

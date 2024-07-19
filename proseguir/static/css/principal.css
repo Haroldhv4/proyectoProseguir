@@ -1,0 +1,159 @@
+.navbar{
+  background-color: white;
+  height: 80px;
+  margin: 20px;
+  border-radius: 16px;
+  padding: 0.5rem;
+}
+.navbar-brand{
+  font-weight: 500;
+  color: #009970;
+  font-size: 24px;
+  transition: 0.3s color;
+}
+.login-button{
+  background-color: #009970;
+  color: white;
+  font-size: 14px;
+  padding: 8px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: 0.3s background-color;
+}
+.login.button:hover{
+  background-color: #00b383;
+}
+.navbar-toggler{
+  border: none;
+  font-size: 1.25rem;
+}
+.navbar-toggler:focus, .btn-close:focus{
+  box-shadow: none;
+  outline: none;
+}
+.nav-link{
+  color: #666777;
+  font-weight: 500;
+  position: relative;
+}
+.nav-link:hover, .nav-link.active{
+  color: #000;
+}
+@media (min-width: 991px) {
+  .nav-link::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 2px;
+    background-color: #009970;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+  }
+  .nav-link:hover::before, .nav-link.active::before{
+    width: 100%;
+    visibility: visible;
+  }
+}
+.hero-section{
+  background: url('../img/fondoseguridad.avif') no-repeat center;
+  background-size: cover;
+  width: 100%;
+}
+.hero-section::before{
+  background-color: rgba(0, 0, 0, 0.2);
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.hero-section .container{
+  height: 100vh;
+  z-index: 1;
+  position: relative;
+}
+.hero-section h1{
+  font-size: 1.5em;
+  font-size: 35px;
+}
+.hero-section h2{
+  font-size: 1.2em;
+  font-size: 30px;
+}
+label.error{
+  color:red;
+  font-weight: bold;
+}
+input.error,select.error,textarea.error {
+  border: 1px solid red;
+}
+table{
+  border: 3px solid black !important;
+  border-radius: 1px;
+}
+#tbl_religiones_filter {
+    float: left;
+    margin-bottom: 10px; /* Añadir espacio entre el campo de búsqueda y la tabla */
+}
+#tbl_categorias_filter {
+    float: left;
+    margin-bottom: 10px; /* Añadir espacio entre el campo de búsqueda y la tabla */
+}
+#tbl_sucursales_filter {
+    float: left;
+    margin-bottom: 10px; /* Añadir espacio entre el campo de búsqueda y la tabla */
+}
+#tbl_convenios_filter {
+    float: left;
+    margin-bottom: 10px; /* Añadir espacio entre el campo de búsqueda y la tabla */
+}
+#tbl_lugares_trabajo_filter {
+    float: left;
+    margin-bottom: 10px; /* Añadir espacio entre el campo de búsqueda y la tabla */
+}
+#tbl_departamentos_filter {
+    float: left;
+    margin-bottom: 10px; /* Añadir espacio entre el campo de búsqueda y la tabla */
+}
+#tbl_empleados_filter {
+    float: left;
+    margin-bottom: 10px; /* Añadir espacio entre el campo de búsqueda y la tabla */
+}
+/* Mover el campo de búsqueda a la izquierda */
+#tbl_provincias_filter {
+    float: left;
+    margin-bottom: 10px; /* Añadir espacio entre el campo de búsqueda y la tabla */
+}
+/* Centrar los botones debajo de la tabla */
+.dataTables_wrapper .dt-buttons {
+    text-align: center;
+    margin-top: 10px;
+}
+/* Estilo para el contenedor de botones */
+.dt-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px; /* Ajusta la separación superior según sea necesario */
+}
+/* Estilo para cada botón */
+.dt-button {
+    margin-left: 5px; /* Ajusta el margen entre los botones */
+    background-color: #007BFF; /* Cambia el color de fondo según tus preferencias */
+    color: #FFFFFF; /* Cambia el color del texto según tus preferencias */
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+/* Estilo para el texto dentro del botón */
+.dt-button span {
+    font-weight: bold;
+}
+.b{
+  font-size: 13px;
+}

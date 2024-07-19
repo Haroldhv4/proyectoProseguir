@@ -1,0 +1,53 @@
+{% extends "./plantilla.html" %}
+{% load static %}
+{% block contenido %}
+<br><br><br><br><br>
+<center><h1 style="font-size:20px;"> LISTADO DE DEPARTAMENTOS </h1></center>
+<div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-3">
+    <center><h2 style="font-size: 20px">FORMULARIO</h2></center><br>
+    <form action="/guardar_departamento/" method="post" enctype="multipart/form-data" id="frm_nuevo_departamento"><br>
+      {% csrf_token %}
+      <div class="form-group row">
+        <label for="Departamento" class="col-sm-2 col-form-label"><b class="b">DEPARTAMENTO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="Departamento" id="Departamento" value="" placeholder="Ingrese el nombre del departamento" class="form-control">
+        </div>
+      </div>
+      <br><br>
+      <center>
+        <button type="submit" name="button" class="btn btn-primary"> Guardar </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/" class="btn btn-danger"> Cancelar </a>
+      </center>
+    </form>
+  </div>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-6"><br>
+    <table class="table" id="tbl_departamentos">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>NOMBRE</th>
+          <th>ACCIONES</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for departamento in departamento %}
+        <tr>
+          <td>{{ departamento.Departamento_ID }}</td>
+          <td>{{ departamento.Departamento }}</td>
+          <td>
+            <a href="/editar_departamento/{{ departamento.Departamento_ID }}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+            <a href="javascript:void(0)" onclick="eliminarDepartamento('/eliminar_departamento/{{ departamento.Departamento_ID }}');" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<br><br><br><br>
+{% endblock %}

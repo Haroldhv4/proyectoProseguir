@@ -1,0 +1,77 @@
+{% extends "./plantilla.html" %}
+{% load static %}
+{% block contenido %}
+<br><br><br><br><br>
+<center><h1 style="font-size:20px;"> LISTADO DE CATEGORÍAS </h1></center>
+<div class="row">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-3">
+    <center><h2 style="font-size: 20px">FORMULARIO</h2></center><br>
+    <form action="/guardar_categoria/" method="post" enctype="multipart/form-data" id="frm_nueva_categoria"><br>
+      {% csrf_token %}
+      <div class="form-group row">
+        <label for="Categoria" class="col-sm-2 col-form-label"><b class="b">CATEGORÍA:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="Categoria" id="Categoria" value="" placeholder="Ingrese una categoría" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="Cod_C" class="col-sm-2 col-form-label"><b class="b">CÓDIGO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="Cod_C" id="Cod_C" value="" placeholder="Ingrese el código" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="Costo" class="col-sm-2 col-form-label"><b class="b">COSTO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="number" name="Costo" id="Costo" value="" placeholder="Ingrese el costo" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="C_Costo" class="col-sm-2 col-form-label"><b class="b">C.COSTO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="C_Costo" id="C_Costo" value="" placeholder="Ingrese el centro de costo" class="form-control">
+        </div>
+      </div>
+      <br><br>
+      <center>
+        <button type="submit" name="button" class="btn btn-primary"> Guardar </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/" class="btn btn-danger"> Cancelar </a>
+      </center>
+    </form>
+  </div>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-6"><br>
+    <table class="table" id="tbl_categorias">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>CATEGORÍA</th>
+          <th>CÓDIGO</th>
+          <th>COSTO</th>
+          <th>CENTRO DE COSTO</th>
+          <th>ACCIONES</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for categoria in categoria %}
+        <tr>
+          <td>{{ categoria.Categoria_ID }}</td>
+          <td>{{ categoria.Categoria }}</td>
+          <td>{{ categoria.Cod_C }}</td>
+          <td>{{ categoria.Costo }}</td>
+          <td>{{ categoria.C_Costo }}</td>
+          <td>
+            <a href="/editar_categoria/{{ categoria.Categoria_ID }}" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+            <a href="javascript:void(0)" onclick="eliminarCategoria('/eliminar_categoria/{{ categoria.Categoria_ID }}');" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<br><br><br><br>
+{% endblock %}

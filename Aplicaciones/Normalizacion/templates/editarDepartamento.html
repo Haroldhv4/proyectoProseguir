@@ -1,0 +1,31 @@
+{% extends "./plantilla.html" %}
+{% load static %}
+{% block contenido %}
+<br><br><br><br><br>
+<center><h1 style="font-size:20px;"> EDITAR DEPARTAMENTO </h1></center>
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6">
+    <center><h2 style="font-size: 20px">FORMULARIO</h2></center><br>
+    <form action="/procesar_actualizacion_departamento/" method="post" enctype="multipart/form-data" id="frm_editar_departamento"><br>
+      {% csrf_token %}
+      <input type="hidden" name="Departamento_ID" value="{{ departamento.Departamento_ID }}">
+      <div class="form-group row">
+        <label for="Departamento" class="col-sm-2 col-form-label"><b class="b">DEPARTAMENTO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="Departamento" id="Departamento" value="{{ departamento.Departamento }}" placeholder="Ingrese el nombre del departamento" class="form-control">
+        </div>
+      </div>
+      <br><br>
+      <center>
+        <button type="submit" name="button" class="btn btn-primary"> Actualizar </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/vista_departamento" class="btn btn-danger"> Cancelar </a>
+      </center>
+    </form>
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>
+<br><br><br><br>
+{% endblock %}

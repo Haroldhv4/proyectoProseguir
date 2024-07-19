@@ -1,0 +1,33 @@
+{# Heredando header y footer#}
+{% extends "./plantilla.html" %}
+{% load static %}
+{% block contenido %}
+<!-- Cuerpo del html o pagina web -->
+<!-- Inicio de la section -->
+<section class="hero-section">
+  <div class="container d-flex align-items-center justify-content-center fs-1 text-white flex-column">
+    <h1> PROSEGUIR </h1>
+    <h2> Empresa de Seguridad Privada </h2>
+  </div>
+</section>
+<br><br><br><br>
+<!-- Page Content-->
+       <div class="container px-4 px-lg-5">
+           <!-- Heading Row-->
+           <div class="row gx-4 gx-lg-5 align-items-center my-5">
+               <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static '/img/slider.avif' %}" alt="..." /></div>
+               <div class="col-lg-5">
+                   <h1 class="font-weight-light"> Mision </h1>
+                   <p style="text-align: justify;"> Proveer información, confiable, oportuna y en tiempo real para los usuarios de los servicios de vigilancia y seguridad privada, relacionada con la legalidad, idoneidad y capacidades técnicas de los prestadores de dichos servicios.</p>
+                   <h1 class="font-weight-light"> Vision </h1>
+                   <p style="text-align: justify;">Ejercer la vigilancia y protección de bienes, establecimientos, lugares y eventos, tanto privados como públicos, así como la protección de las personas que puedan encontrarse en los mismos, llevando a cabo las comprobaciones, registros y prevenciones necesarias para el cumplimiento de su misión..</p>
+               </div>
+           </div>
+           <!-- Call to Action-->
+           <div class="card text-white bg-secondary my-5 py-4 text-center">
+               <div class="card-body"><p class="text-white m-0"> No hay personas mejores que aquellas a quienes les encanta la seguridad de los demas. </p></div>
+           </div>
+           <!-- Content Row-->
+       </div>
+<!-- Final de la section -->
+{% endblock %}

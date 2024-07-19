@@ -1,0 +1,49 @@
+{% extends "./plantilla.html" %}
+{% load static %}
+{% block contenido %}
+<br><br><br><br><br>
+<center><h1 style="font-size:20px;"> EDITAR CATEGORÍA </h1></center>
+<div class="row">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-6">
+    <center><h2 style="font-size: 20px">FORMULARIO</h2></center><br>
+    <form action="/procesar_actualizacion_categoria/" method="post" enctype="multipart/form-data" id="frm_editar_categoria"><br>
+      {% csrf_token %}
+      <input type="hidden" name="Categoria_ID" value="{{ categoria.Categoria_ID }}">
+      <div class="form-group row">
+        <label for="Categoria" class="col-sm-2 col-form-label"><b class="b">CATEGORÍA:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="Categoria" id="Categoria" value="{{ categoria.Categoria }}" placeholder="Ingrese una categoría" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="Cod_C" class="col-sm-2 col-form-label"><b class="b">CÓDIGO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="Cod_C" id="Cod_C" value="{{ categoria.Cod_C }}" placeholder="Ingrese el código" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="Costo" class="col-sm-2 col-form-label"><b class="b">COSTO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="number" name="Costo" id="Costo" value="{{ categoria.Costo }}" placeholder="Ingrese el costo" class="form-control">
+        </div>
+      </div><br>
+      <div class="form-group row">
+        <label for="C_Costo" class="col-sm-2 col-form-label"><b class="b">CENTRO DE COSTO:</b></label>
+        <div style="padding-left: 50px;" class="col-sm-10">
+          <input type="text" name="C_Costo" id="C_Costo" value="{{ categoria.C_Costo }}" placeholder="Ingrese el centro de costo" class="form-control">
+        </div>
+      </div>
+      <br><br>
+      <center>
+        <button type="submit" name="button" class="btn btn-primary"> Actualizar </button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/vista_categoria" class="btn btn-danger"> Cancelar </a>
+      </center>
+    </form>
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>
+<br><br><br><br>
+{% endblock %}
