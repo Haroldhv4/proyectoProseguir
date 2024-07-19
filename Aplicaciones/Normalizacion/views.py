@@ -38,7 +38,7 @@ def procesar_actualizacion_religion(request):
 
 # Vista CATEGORÍA
 def vista_categoria(request):
-    categoriaBdd = Categoria.objects.values('Categoria').distinct()
+    categoriaBdd = Categoria.objects.values('Categoria_ID', 'Categoria', 'Cod_C', 'Costo', 'C_Costo').distinct()
     return render(request, "categoria.html", {'categoria': categoriaBdd})
 
 def guardar_categoria(request):
@@ -78,7 +78,7 @@ def procesar_actualizacion_categoria(request):
 
 # Vista SUCURSAL
 def vista_sucursal(request):
-    sucursalBdd = Sucursal.objects.values('Sucursal').distinct()
+    sucursalBdd = Sucursal.objects.values('Sucursal_ID','Sucursal','Nombre_oficina').distinct()
     return render(request, "sucursal.html", {'sucursal': sucursalBdd})
 
 def guardar_sucursal(request):
@@ -112,7 +112,7 @@ def procesar_actualizacion_sucursal(request):
 
 # Vista CONVENIO
 def vista_convenio(request):
-    convenioBdd = Convenio.objects.values('Nombre_del_convenio').distinct()
+    convenioBdd = Convenio.objects.values('Convenio_ID','Nombre_del_convenio').distinct()
     return render(request, "convenio.html", {'convenio': convenioBdd})
 
 def guardar_convenio(request):
@@ -146,7 +146,7 @@ def procesar_actualizacion_convenio(request):
 
 # Vista LUGAR DE TRABAJO
 def vista_lugar_trabajo(request):
-    lugar_trabajoBdd = LugarTrabajo.objects.values('Nombre_Lugar_Trabajo').distinct()
+    lugar_trabajoBdd = LugarTrabajo.objects.values('Id_Lugar_Trabajo','Nombre_Lugar_Trabajo').distinct()
     return render(request, "trabajo.html", {'lugar_trabajo': lugar_trabajoBdd})
 
 def guardar_lugar_trabajo(request):
@@ -178,7 +178,7 @@ def procesar_actualizacion_lugar_trabajo(request):
 # Vista DEPARTAMENTO
 def vista_departamento(request):
     # Obtiene todos los departamentos asegurando que solo se devuelvan valores únicos
-    departamentoBdd = Departamento.objects.values('Departamento').distinct()
+    departamentoBdd = Departamento.objects.values('Departamento_ID','Departamento').distinct()
     return render(request, "departamento.html", {'departamento': departamentoBdd})
 
 def guardar_departamento(request):
