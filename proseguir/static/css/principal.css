@@ -123,11 +123,6 @@ table{
     float: left;
     margin-bottom: 10px; /* Añadir espacio entre el campo de búsqueda y la tabla */
 }
-/* Mover el campo de búsqueda a la izquierda */
-#tbl_provincias_filter {
-    float: left;
-    margin-bottom: 10px; /* Añadir espacio entre el campo de búsqueda y la tabla */
-}
 /* Centrar los botones debajo de la tabla */
 .dataTables_wrapper .dt-buttons {
     text-align: center;
