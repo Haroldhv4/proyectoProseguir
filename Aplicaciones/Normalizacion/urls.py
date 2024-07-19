@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # Vistas generales
+    # Vistas generales del proyecto
     path('', views.home, name='home'),
 
     # URLs para Religion

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import Religion, Categoria, Sucursal, Convenio, LugarTrabajo, Departamento, Empleado
 
-# Vista principal
+# Vista principal del proyecto
 def home(request):
     return render(request, "index.html")
 

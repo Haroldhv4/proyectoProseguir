@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('Aplicaciones.Normalizacion.urls'))
 ]
+#para manejar archivos estaticos
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
